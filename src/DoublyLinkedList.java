@@ -5,70 +5,97 @@ public class DoublyLinkedList<T> {
 
     private class Node<T> {
         T item;
-        Node<T> pNode;
         Node<T> nNode;
+        Node<T> pNode;
+
+        private Node(T value) {
+            item = value;
+            nNode = null;
+            pNode = null;
+        }
+
+        private T getItem() {
+            return(item);
+        }
+
+        private void setItem(T value) {
+            item = value;
+        }
+
+        private Node getNextNode(){
+            return(nNode);
+        }
+
+        private void setNextNode(Node node) {
+            nNode = node;
+        }
+
+        private Node getPreviousNode(){
+            return(pNode);
+        }
+
+        private void setPreviousNode(Node node) {
+            pNode = node;
+        }
+
+        private void linkNode(Node node) {
+            if (this.getNextNode() == null) {
+                this.setNextNode(node);
+                node.setPreviousNode(this);
+            }
+            else
+                this.getNextNode().linkNode(node);
+        }
+
+        private boolean unlinkNode(T value) {
+            if (this == null) {
+                return (false);
+            } else {
+                if (this.nNode.item.equals(value)) {
+                    this.nNode = nNode.nNode;
+                    this.nNode.pNode = this;
+                    return (true);
+                } else
+                    return (this.nNode.unlinkNode(value));
+            }
+        }
     }
 
     private Node<T> head;
+    private int listLength;
 
-    public DoublyLinkedList (T value) {
-        head = new Node<T>();
-        head.item = value;
-        head.pNode = null;
-        head.nNode = null;
+    public DoublyLinkedList () {
+        head = null;
+        listLength = 0;
     }
 
-    public void addPatient(T newNode) {
-        if (nNode == null) {
-            nextPatient = newPatient;
-            newPatient.previousPatient = this;
-        }
+    public void addItem(T value) {
+        Node<T> newNode = new Node<T>(value);
+        if (head == null)
+            head = newNode;
         else
-            this.nextPatient.addPatient(newPatient);
+            head.linkNode(newNode);
+        listLength++;
     }
 
-    public boolean deletePatient(PatientDL oldPatient) {
-        if (this.nextPatient == null) {
-            System.out.println("Patient "+oldPatient.name+" not found");
-            return (false);
-        } else {
-            if (this.nextPatient.name.equals(oldPatient.name)) {
-                this.nextPatient = nextPatient.nextPatient;
-                this.nextPatient.previousPatient = this;
-                return (true);
-            } else
-                return (this.nextPatient.deletePatient(oldPatient));
-        }
+    public void deleteItem(T value) {
+        boolean found = head.unlinkNode(value);
+        if (found)
+            listLength--;
+        else
+            System.out.println("Item not found");
     }
 
-    public void printPatientList() {
-        PatientDL first = this;
-        PatientDL last = this;
-        PatientDL current = this;
+    public void printList() {
+        Node current = head;
         while (current != null) {
-            System.out.println("Name: " + current.name + " Age: " + current.age + " Illness: " + current.illness);
-            if (current.nextPatient == null)
-                last = current;
-            current = current.nextPatient;
+            System.out.println(current.item);
+            current = current.nNode;
         }
-        current = last;
-        System.out.println();
-        System.out.println("Name: " + current.name + " Age: " + current.age + " Illness: " + current.illness);
-        while (current != first) {
-            System.out.println("Name: " + current.previousPatient.name + " Age: " + current.previousPatient.age + " Illness: " + current.previousPatient.illness);
-            current = current.previousPatient;
-        }
-        System.out.println("END OF PRINT (FW & BW)");
     }
 
-    public int patientListLengthIterative() {
-        PatientDL tempPatient = this;
-        int counter = 1;
-        while (tempPatient.nextPatient != null) {
-            counter++;
-            tempPatient = tempPatient.nextPatient;
-        }
-        return (counter);
+    public int getListLength() {
+        return (listLength);
     }
 
 }

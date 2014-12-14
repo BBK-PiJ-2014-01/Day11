@@ -1,4 +1,6 @@
 Day11
 =====
-
-Day11 Exercises
+Exercise 1:
+  - Comparator Class implemented - code complete
+Exercise 3:
+  - DoublyLinkedList & Company Classes implemented - code complete
