@@ -28,8 +28,8 @@ public class PhoneLauncher {
         sp2.call("0203 128 2981");
         sp2.ringAlarm("Time to get up!");
         sp2.playGame("Hay Day");
-        sp2.browseWeb("www.aaa.com");
-        String position2 = sp2.findPosition();
+        // sp2.browseWeb("www.aaa.com");
+        // String position2 = sp2.findPosition();
         System.out.println(position);
         sp2.printLastNumbers();
         System.out.println("Brand: " + sp2.getBrand());
