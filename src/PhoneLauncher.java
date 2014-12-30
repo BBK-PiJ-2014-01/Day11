@@ -1,43 +1,20 @@
+import Source.SmartPhone;
+
 /**
- * Created by Pierre on 27/11/2014.
+ * Created by Pierre on 30/12/2014.
  */
 public class PhoneLauncher {
     public static void main(String[] args) {
-        PhoneLauncher launcher = new PhoneLauncher();
-        launcher.launch();
+        PhoneLauncher pl = new PhoneLauncher();
+        pl.run();
     }
 
-    public void launch() {
-        SmartPhone sp = new SmartPhone("Nokia");
-        sp.call("0203 128 2441");
-        sp.call("0203 128 2321");
-        sp.call("00 203 128 2222");
-        sp.call("0203 128 2981");
-        sp.ringAlarm("Time to get up!");
-        sp.playGame("Hay Day");
-        sp.browseWeb("www.aaa.com");
-        String position = sp.findPosition();
-        System.out.println(position);
-        sp.printLastNumbers();
-        System.out.println("Brand: " + sp.getBrand());
-
-        MobilePhone sp2 = new SmartPhone("Nokia");
-        sp2.call("0203 128 2441");
-        sp2.call("0203 128 2321");
-        sp2.call("00 203 128 2222");
-        sp2.call("0203 128 2981");
-        sp2.ringAlarm("Time to get up!");
-        sp2.playGame("Hay Day");
-        // sp2.browseWeb("www.aaa.com");
-        // String position2 = sp2.findPosition();
-        System.out.println(position);
-        sp2.printLastNumbers();
-        System.out.println("Brand: " + sp2.getBrand());
-
-
-
-
-
-
+    void run() {
+        SmartPhone myPhone = new SmartPhone("iPhone");
+        System.out.println("My phone brand: "+myPhone.getBrand());
+        myPhone.browseWeb("www.bbc.co.uk");
+        myPhone.call("00 33 6 12345678");
+        myPhone.findPosition();
+        myPhone.playGame("iFarm");
     }
 }
