@@ -1,4 +1,3 @@
-package Source;
 
 /**
  * Created by Pierre on 27/11/2014.

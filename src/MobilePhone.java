@@ -1,10 +1,8 @@
-package Source;
-
 /**
  * Created by Pierre on 27/11/2014.
  * Code complete
  */
-public class MobilePhone extends OldPhone  {
+public class MobilePhone extends OldPhone {
 
     private String lastNumbers[]= new String[10];
 
