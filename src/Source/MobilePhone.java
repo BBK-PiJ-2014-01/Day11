@@ -1,5 +1,8 @@
+package Source;
+
 /**
  * Created by Pierre on 27/11/2014.
+ * Code complete
  */
 public class MobilePhone extends OldPhone  {
 
@@ -14,17 +17,21 @@ public class MobilePhone extends OldPhone  {
     @Override
     public void call(String number) {
         super.call(number);
-        for (int i=8; i>=0 ; i--)
-            lastNumbers[i+1] = lastNumbers[i];
-        lastNumbers[0] = number;
+        recordNumbers(number);
     }
 
     public void ringAlarm(String alarm) {
         System.out.println("Alarm: " + alarm);
     }
 
-    public void playGame(String game) {
+    private void playGame(String game) {
         System.out.println("Game launched: " + game);
+    }
+
+    public void recordNumbers(String number) {
+        for (int i=8; i>=0 ; i--)
+            lastNumbers[i+1] = lastNumbers[i];
+        lastNumbers[0] = number;
     }
 
     public void printLastNumbers() {
