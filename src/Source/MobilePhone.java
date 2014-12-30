@@ -6,7 +6,7 @@ import Source.OldPhone;
  * Created by Pierre on 27/11/2014.
  * Code complete
  */
-public class MobilePhone extends OldPhone {
+public abstract class MobilePhone extends OldPhone {
 
     private String lastNumbers[]= new String[10];
 
@@ -26,9 +26,13 @@ public class MobilePhone extends OldPhone {
         System.out.println("Alarm: " + alarm);
     }
 
-    private void playGame(String game) {
+    public void playGame(String game) {
         System.out.println("Game launched: " + game);
     }
+
+    public abstract void browseWeb(String webLink);
+
+    public abstract String findPosition();
 
     public void recordNumbers(String number) {
         for (int i=8; i>=0 ; i--)

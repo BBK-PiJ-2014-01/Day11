@@ -11,11 +11,11 @@ public class PhoneLauncher {
     }
 
     void run() {
-        SmartPhone myPhone = new SmartPhone("iPhone");
+        MobilePhone myPhone = new SmartPhone("iPhone");
         System.out.println("My phone brand: " + myPhone.getBrand());
         myPhone.browseWeb("www.bbc.co.uk");
         myPhone.call("00 33 6 12345678");
-        myPhone.findPosition();
+        System.out.println(myPhone.findPosition());
         myPhone.playGame("iFarm");
     }
 }
