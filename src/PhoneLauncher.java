@@ -24,6 +24,9 @@ public class PhoneLauncher {
         samePhone.browseWeb("www.bbc.co.uk");
         System.out.println(samePhone.findPosition());
         testPhone(myPhone);
+
+        MobilePhone myOldPhone = new MobilePhone("iPhone3");
+        testPhone(myOldPhone);
     }
 
     public void testPhone(Phone phone) {
