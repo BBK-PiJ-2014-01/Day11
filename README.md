@@ -8,7 +8,7 @@ Exercise 2.1:
  - code complete
 
 Exercise 2.2:
- - myPhone upcasted to MobilePhone
+ - myPhone upcasted to MobilePhone but it does not compile.
 
 Exercise 3:
  - Generic DoublyLinkedList Class & Company Class implemented - code complete
