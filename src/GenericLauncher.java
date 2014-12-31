@@ -8,6 +8,6 @@ public class GenericLauncher {
     }
 
     public void run() {
-        
+
     }
 }

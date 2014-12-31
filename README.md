@@ -18,8 +18,12 @@ Exercise 2.3:
  - It can only call method call().
 
 Exercise 2.4:
- - Object in testPhone() downcasted to SmartPhone. All SmartPhone methods work.
+ - Object in testPhone() downcasted to SmartPhone. All SmartPhone methods now work.
  - Code complete.
+
+Exercise 2.5:
+ - if passing on a MobilePhone object to method testPhone, it compiles but fails at run time.
+(it cannot downcast a phone to MobilePhone as it is not one).
 
 Exercise 3:
  - Generic DoublyLinkedList Class & Company Class implemented - code complete
