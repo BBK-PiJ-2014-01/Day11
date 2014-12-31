@@ -3,42 +3,42 @@
  */
 public class DoublyLinkedList<T> {
 
-    private class Node<T> {
+    protected class Node<T> {
         T item;
         Node<T> nNode;
         Node<T> pNode;
 
-        private Node(T value) {
+        public Node(T value) {
             item = value;
             nNode = null;
             pNode = null;
         }
 
-        private T getItem() {
+        public T getItem() {
             return(item);
         }
 
-        private void setItem(T value) {
+        public void setItem(T value) {
             item = value;
         }
 
-        private Node getNextNode(){
+        public Node getNextNode(){
             return(nNode);
         }
 
-        private void setNextNode(Node node) {
+        public void setNextNode(Node node) {
             nNode = node;
         }
 
-        private Node getPreviousNode(){
+        public Node getPreviousNode(){
             return(pNode);
         }
 
-        private void setPreviousNode(Node node) {
+        public void setPreviousNode(Node node) {
             pNode = node;
         }
 
-        private void linkNode(Node node) {
+        public void linkNode(Node node) {
             if (this.getNextNode() == null) {
                 this.setNextNode(node);
                 node.setPreviousNode(this);
@@ -47,7 +47,7 @@ public class DoublyLinkedList<T> {
                 this.getNextNode().linkNode(node);
         }
 
-        private boolean unlinkNode(T value) {
+        public boolean unlinkNode(T value) {
             if (this == null) {
                 return (false);
             } else {
@@ -61,8 +61,8 @@ public class DoublyLinkedList<T> {
         }
     }
 
-    private Node<T> head;
-    private int listLength;
+    protected Node<T> head;
+    protected int listLength;
 
     public DoublyLinkedList () {
         head = null;
